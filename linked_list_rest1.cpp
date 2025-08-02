@@ -63,7 +63,7 @@ int main() {
         insert_at_tail(head, val);
     }
     // cout<<"SIZE OF LINKED LIST: "<<get_size(head)<<endl;
-    print_middle(head);
+    print_middle(head); 
 
     return 0;
 }
