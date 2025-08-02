@@ -51,7 +51,8 @@ void print_middle(Node* head) {
     }
     cout<<endl;
 
-}
+} 
+// #strsda
 
 int main() {
     Node *head = NULL;
