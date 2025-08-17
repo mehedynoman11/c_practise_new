@@ -8,7 +8,6 @@ public:
     Node(int val) {
         this->val = val;
         this->next = NULL;
-        
     }
 };
 
@@ -25,68 +24,59 @@ void insert_at_tail(Node *&head, int val) {
     tmp->next = newNode;
 }
 
-//* 10 20 30 40 50 -1
-
-//* head->val = 10
-//* head->next = 20
-//* 20> 10 = 20
-
-
-//* head->val = 20
-//* head->next = 30
-//* 30> 20 = 30
-
-//* head->val = 30
-//* head->next = 40
-//* 40> 30 = 40
-
-
-
-//* head->val = 40
-//* head->next = 50
-//* 50> 40 = 50
-
-
+void print_linked_list(Node *head) {
+    Node *temp = head;
+    while(temp != NULL) {
+        cout<<temp->val<<" "; 
+        temp = temp->next;
+    }
+    cout<<endl;
+}
 
 int get_max(Node *head) {
-    if(head == NULL) {
-        return -1; // or throw an exception
+    if (head == NULL) {
+        return -1;
     }
-    int maxVal = head->val;
+    int max_value = head->val;
     Node *tmp = head->next;
     while(tmp != NULL) {
-        if(tmp->val > maxVal) {
-            maxVal = tmp->val;
+        if(tmp->val > max_value) {
+            max_value = tmp->val;
         }
         tmp = tmp->next;
     }
-    return maxVal;
+    return max_value;
 }
 
-void print_linkedList(Node *head) {
-    Node *tmp = head;
-    while(tmp != NULL) {
-        cout<<tmp->val<<" ";
-        tmp = tmp->next;
+int get_min(Node *head) {
+    if(head == NULL) {
+        return -1;
     }
-    cout<<endl;
+    int min_value = head -> val;
+    Node *tmp = head->next;
+    while(tmp != NULL) {
+        if(tmp->val < min_value) {
+            min_value = tmp->val;
+        }
+        tmp = tmp -> next;
+    }
+    return min_value;
 }
 
 int main() {
     Node *head = NULL;
     int val;
-    cout<<"Enter values:  ";
-    while(true){
+    cout<<"Enter a value: "<<endl;
+    while(true) {
         cin>>val;
         if(val == -1) {
             break;
         }
         insert_at_tail(head, val);
     }
+    print_linked_list(head);
+    cout<<"Max value: "<<get_max(head)<<endl;
+    cout<<"Min value: "<<get_min(head)<<endl;
 
-    cout<<"Max value in the linked list: "<<get_max(head)<<endl;
-    cout<<"Linked list elements: ";
-    print_linkedList(head);
-    cout<<endl;
     return 0;
 }
