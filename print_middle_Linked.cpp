@@ -34,6 +34,16 @@ int get_size(Node *head) {
     return count;
 }
 
+void sort_list(Node *head){
+    for(Node *i = head;i != NULL;i = i->next) {
+        for(Node *j=i->next; j != NULL; j= j->next) {
+            if (i->val > j->val) {
+                swap(i->val, j->val);
+            }
+        }
+    }
+}
+
 void print_middle(Node *head) {
     Node *tmp = head;
     int size = get_size(head);
@@ -60,6 +70,7 @@ int main() {
         }
         insert_at_tail(head, val);
     }
+    sort_list(head);
     print_middle(head);
     return 0;
 }
