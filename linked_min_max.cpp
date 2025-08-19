@@ -30,7 +30,6 @@ void print_linked_list(Node *head) {
         cout<<temp->val<<" "; 
         temp = temp->next;
     }
-    cout<<endl;
 }
 
 int get_max(Node *head) {
@@ -66,7 +65,6 @@ int get_min(Node *head) {
 int main() {
     Node *head = NULL;
     int val;
-    cout<<"Enter a value: "<<endl;
     while(true) {
         cin>>val;
         if(val == -1) {
@@ -74,9 +72,8 @@ int main() {
         }
         insert_at_tail(head, val);
     }
-    print_linked_list(head);
-    cout<<"Max value: "<<get_max(head)<<endl;
-    cout<<"Min value: "<<get_min(head)<<endl;
+    // print_linked_list(head);
+    cout<<get_max(head)<<" "<<get_min(head)<<endl;
 
     return 0;
 }
